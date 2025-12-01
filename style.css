@@ -229,3 +229,8 @@ button:hover {
     color: #666;
     font-style: italic;
 }
+.formula {
+    text-align: center;
+    margin: 14px 0;
+    font-size: 1.1rem;
+}
