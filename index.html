@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Cálculo 1 - UNNE (Teoría Completa)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1><i class="fas fa-book-open"></i> Teoría Completa Final Cálculo 1</h1>
+        <div id="countdown-container">
+            <span>Tiempo restante:</span>
+            <div id="timer">48:00:00</div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>1. LÍMITES (Definiciones y Propiedades)</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="topic">
+                    <h3>A. Las 3 Definiciones Clave</h3>
+                    <ul>
+                        <li>
+                            <strong>1. Formal (Cauchy \(\epsilon-\delta\)):</strong>
+                            <p>Se dice que \(\lim_{x \to c} f(x) = L\) si para todo número \(\epsilon > 0\), existe un \(\delta > 0\) tal que:</p>
+                            <p class="formula">$$0 < |x - c| < \delta \implies |f(x) - L| < \epsilon$$</p>
+                            <p class="note">Significa que podemos hacer que \(f(x)\) esté tan cerca de \(L\) como queramos, siempre que \(x\) esté suficientemente cerca de \(c\).</p>
+                        </li>
+                        <li>
+                            <strong>2. Por Sucesiones (Heine):</strong>
+                            <p>El límite es \(L\) si, para <em>toda</em> sucesión \(\{x_n\}\) que converge a \(c\) (con \(x_n \neq c\)), la sucesión de imágenes \(\{f(x_n)\}\) converge a \(L\).</p>
+                            <p class="note"><strong>Utilidad:</strong> Si encuentras dos sucesiones que van a \(c\) pero sus imágenes van a valores distintos, el límite NO existe.</p>
+                        </li>
+                        <li>
+                            <strong>3. Límites Laterales:</strong>
+                            <ul>
+                                <li><strong>Por derecha (\(x \to c^+\)):</strong> \(x\) se aproxima a \(c\) con valores mayores.</li>
+                                <li><strong>Por izquierda (\(x \to c^-\)):</strong> \(x\) se aproxima a \(c\) con valores menores.</li>
+                            </ul>
+                            <p><strong>Condición de Existencia:</strong> El límite global existe si y solo si los dos laterales existen y son IGUALES.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="topic">
+                    <h3>B. Continuidad en un Punto</h3>
+                    <p>Una función \(f(x)\) es continua en \(x=c\) si cumple tres condiciones:</p>
+                    <ol>
+                        <li>\(f(c)\) está definido.</li>
+                        <li>\(\lim_{x \to c} f(x)\) existe.</li>
+                        <li>\(\lim_{x \to c} f(x) = f(c)\).</li>
+                    </ol>
+                    <p class="note">No tiene saltos ni asíntotas en ese punto.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>C. Ejemplos y Propiedades</h3>
+                    <p><strong>Ejemplos:</strong></p>
+                    <ul>
+                        <li><em>Existe:</em> \(f(x)=x^2\) en \(x=2 \to 4\).</li>
+                        <li><em>NO Existe:</em> Si por un camino da 0 y por otro da 1 (Caso Modelo 1).</li>
+                    </ul>
+                    <p><strong>Propiedades (Álgebra de Límites):</strong></p>
+                    <ul>
+                        <li><strong>Suma:</strong> \(\lim [f+g] = A + B\)</li>
+                        <li><strong>Producto:</strong> \(\lim [f \cdot g] = A \cdot B\)</li>
+                        <li><strong>Cociente:</strong> \(\lim [f/g] = A/B\) (si \(B \neq 0\))</li>
+                        <li><strong>Potencia:</strong> \(\lim [f(x)]^n = L^n\)</li>
+                        <li><strong>Unicidad:</strong> Si el límite existe, es único.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>2A. DERIVADAS</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="sub-section">
+                    <h3>Definición e Interpretación</h3>
+                    <p class="formula">$$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$</p>
+                    <p><strong>Geometría:</strong> Pendiente de la recta tangente en \((c, f(c))\). Mide la tasa de cambio instantánea.</p>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Propiedades y Reglas</h3>
+                    <ul>
+                        <li><strong>Regla de la Cadena:</strong> \([f(g(x))]' = f'(g(x)) \cdot g'(x)\)</li>
+                        <li><strong>Linealidad:</strong> \([a \cdot f(x) + b \cdot g(x)]' = a \cdot f'(x) + b \cdot g'(x)\)</li>
+                        <li><strong>Producto:</strong> \([f \cdot g]' = f \cdot g' + f' \cdot g\)</li>
+                        <li><strong>Cociente:</strong> \([f/g]' = \frac{f' \cdot g - f \cdot g'}{g^2}\)</li>
+                    </ul>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Aplicaciones</h3>
+                    <ul>
+                        <li><strong>Crecimiento:</strong> \(f'(x) > 0\) (crece), \(f'(x) < 0\) (decrece).</li>
+                        <li><strong>Puntos Críticos:</strong> Donde \(f'(x)=0\) o no existe (posibles Máx/Mín).</li>
+                        <li><strong>Concavidad:</strong>
+                            <ul>
+                                <li>\(f''(x) > 0\): Cóncava hacia arriba (U).</li>
+                                <li>\(f''(x) < 0\): Cóncava hacia abajo (∩).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Punto de Inflexión:</strong> Donde cambia la concavidad (\(f''(x)=0\) y cambia de signo).</li>
+                        <li><strong>L'Hôpital:</strong> Se usa derivada para resolver límites \(0/0\).</li>
+                    </ul>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>TEOREMA DE ROLLE (Demostración)</h4>
+                    <p><strong>Hipótesis:</strong> 1) Continua en \([a,b]\). 2) Derivable en \((a,b)\). 3) \(f(a)=f(b)\).</p>
+                    <p><strong>Tesis:</strong> \(\exists c \in (a,b)\) tal que \(f'(c)=0\).</p>
+                    <ul class="steps">
+                        <li><strong>Paso 1 (Caso Trivial):</strong> Si es constante, \(f'(x)=0\) siempre.</li>
+                        <li><strong>Paso 2 (Weierstrass):</strong> Tiene Máx y Mín absolutos. Si no es constante, alguno está adentro (en \(c\)).</li>
+                        <li><strong>Paso 3 (Límites):</strong> Analizamos \(f'(c)\).
+                            <br> Por derecha (\(h>0\)): \(\frac{-}{+} \to \le 0\).
+                            <br> Por izquierda (\(h<0\)): \(\frac{-}{-} \to \ge 0\).
+                        </li>
+                        <li><strong>Paso 4:</strong> El único número \(\le 0\) y \(\ge 0\) es el 0. \(\therefore f'(c)=0\).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>2B. DIFERENCIALES</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="topic">
+                    <p><strong>Definición:</strong> \(dy = f'(x) \cdot dx\).</p>
+                    <p>Representa el cambio en la altura de la <strong>recta tangente</strong>.</p>
+                </div>
+                <div class="topic">
+                    <p><strong>Propiedades:</strong></p>
+                    <ul>
+                        <li><strong>Aproximación Lineal:</strong> Para \(dx\) pequeño, el cambio real \(\Delta y \approx dy\).
+                            <br> \(f(x+dx) \approx f(x) + f'(x)dx\)
+                        </li>
+                        <li><strong>Invariancia:</strong> La forma \(dy = f'(x)dx\) se mantiene aunque \(x\) dependa de otra variable.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>2C. INTEGRALES</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="sub-section">
+                    <h3>Definición y Propiedades</h3>
+                    <p><strong>Definición (Riemann):</strong> Límite de sumas de áreas de rectángulos (norma \(\to 0\)).</p>
+                    <p><strong>Propiedades:</strong></p>
+                    <ul>
+                        <li><strong>Linealidad:</strong> Integral de suma = Suma de integrales.</li>
+                        <li><strong>Acotación:</strong> Si \(m \le f(x) \le M \implies m(b-a) \le \int \le M(b-a)\).</li>
+                    </ul>
+                    <p><strong>Integral Indefinida / Antiderivada:</strong> Familia de funciones \(F(x)+C\) tal que \(F'(x)=f(x)\).</p>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>TEOREMA FUNDAMENTAL DEL CÁLCULO</h4>
+                    <p><strong>Parte 1 (Derivada de la Integral):</strong> \(\frac{d}{dx} \int_a^x f(t)dt = f(x)\).</p>
+                    <p><strong>Demostración:</strong></p>
+                    <ul class="steps">
+                        <li><strong>Paso 1:</strong> \(F'(x) = \lim_{h \to 0} \frac{F(x+h)-F(x)}{h}\).</li>
+                        <li><strong>Paso 2:</strong> La resta es el área de la franja entre \(x\) y \(x+h\).</li>
+                        <li><strong>Paso 3 (TVM Integral):</strong> Área franja = \(f(c) \cdot h\).</li>
+                        <li><strong>Paso 4:</strong> Reemplazo: \(\lim \frac{f(c) \cdot h}{h} = \lim f(c)\).</li>
+                        <li><strong>Paso 5:</strong> Cuando \(h \to 0\), \(c \to x\). Como \(f\) es continua, el límite es \(f(x)\).</li>
+                    </ul>
+                    <p><strong>Parte 2 (Regla de Barrow):</strong> \(\int_a^b f(x)dx = F(b) - F(a)\).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>3. SERIES NUMÉRICAS</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="topic">
+                    <h3>Definiciones Básicas</h3>
+                    <p><strong>Serie:</strong> Suma infinita \(\sum a_n\).</p>
+                    <p><strong>Suma Parcial (\(S_n\)):</strong> Suma de los primeros \(n\) términos.</p>
+                    <p><strong>Convergencia:</strong> Converge si \(\lim_{n \to \infty} S_n\) es un número finito.</p>
+                </div>
+                
+                <div class="topic warning">
+                    <h3>Condición Necesaria</h3>
+                    <p>Para que converja, debe cumplirse \(\lim a_n = 0\).</p>
+                    <p><strong>OJO:</strong> Si \(\lim a_n = 0\), NO asegura convergencia (puede divergir). Si NO es 0, diverge seguro.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Criterios de Convergencia</h3>
+                    <ul>
+                        <li><strong>Comparación:</strong> Si \(0 \le a_n \le b_n\) y la grande (\(b_n\)) converge \(\to\) la chica (\(a_n\)) converge.</li>
+                        <li><strong>Raíz (Cauchy):</strong> \(L = \lim \sqrt[n]{a_n}\).
+                            <ul>
+                                <li>\(L < 1 \to\) Converge.</li>
+                                <li>\(L > 1 \to\) Diverge.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card quiz-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2><i class="fas fa-lightbulb"></i> TIPS Y TRAMPAS DEL PDF</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="question">
+                    <p><strong>Trampa de Límites:</strong> "¿Siempre que los laterales existen, existe el límite?"</p>
+                    <p class="answer" style="display:block;">NO, solo si además son <strong>IGUALES</strong>.</p>
+                </div>
+                <div class="question">
+                    <p><strong>Trampa de Rolle:</strong> "¿Y si la función no fuera derivable?"</p>
+                    <p class="answer" style="display:block;">Entonces podría tener un "pico" (V) y ahí no habría tangente horizontal.</p>
+                </div>
+                <div class="question">
+                    <p><strong>Trampa de Series:</strong> "¿Si el límite es 0 converge?"</p>
+                    <p class="answer" style="display:block;">NO. Ejemplo: Serie Armónica \(1/n\) tiende a 0 pero diverge.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
