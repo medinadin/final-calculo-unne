@@ -244,3 +244,6 @@ mjx-container {
 .card-content {
     margin-bottom: 20px;
 }
+mjx-container {
+    overflow-x: auto;
+}
