@@ -192,7 +192,135 @@
             </div>
         </div>
 
+        
+        <!-- BEGIN: BLOQUE TEÓRICO AGREGADO -->
         <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Extra A. Ejemplo formal de Límite (ε-δ)</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="sub-section">
+                    <h3>Ejemplo: \(\displaystyle\lim_{x\to 2} (3x+1)=7\) (prueba ε-δ)</h3>
+                    <p>Queremos mostrar que para todo \(\epsilon>0\) existe \(\delta>0\) tal que si \(0<|x-2|<\delta\) entonces \(|3x+1-7|<\epsilon\).</p>
+                    <p>Observamos \(|3x+1-7|=|3x-6|=3|x-2|\). Si tomamos \(\delta=\epsilon/3\) entonces \(0<|x-2|<\delta\) implica</p>
+                    <p class="formula">$$|3x+1-7|=3|x-2|<3\delta=3\cdot\frac{\epsilon}{3}=\epsilon.$$</p>
+                    <p>Por tanto, se cumple la definición ε-δ y el límite es 7.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Extra B. Teorema del Valor Intermedio (Bolzano)</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="sub-section">
+                    <h3>Enunciado</h3>
+                    <p>Si \(f\) es continua en \([a,b]\) y \(k\) es un número entre \(f(a)\) y \(f(b)\), entonces existe \(c\in[a,b]\) tal que \(f(c)=k\).</p>
+
+                    <h3>Demostración (idea)</h3>
+                    <p>Sin pérdida de generalidad supongamos \(f(a)<k<f(b)\). Consideremos el conjunto \(S=\{x\in[a,b]: f(x)\le k\}\). Usando continuidad y completitud del intervalo mostramos que \(S\) tiene supremo \(c\in[a,b]\) y que \(f(c)=k\).</p>
+                    <p>Esta prueba usa la propiedad de supremo (axioma de completitud) y la continuidad local para pasar del valor aproximado al valor exacto.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Extra C. Teorema de Weierstrass (máximo y mínimo)</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="sub-section">
+                    <h3>Enunciado</h3>
+                    <p>Si \(f\) es continua en un intervalo compacto \([a,b]\), entonces \(f\) alcanza un máximo y un mínimo en \([a,b]\).</p>
+
+                    <h3>Idea de demostración</h3>
+                    <p>La imagen \(f([a,b])\) es un conjunto acotado y no vacío; por completitud tiene supremo y mínimo. La continuidad garantiza que esos supremo/infinum se alcanzan en puntos del intervalo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Extra D. Teorema de Rolle (versión completa)</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="sub-section">
+                    <h3>Enunciado</h3>
+                    <p>Si \(f\) es continua en \([a,b]\), derivable en \((a,b)\) y \(f(a)=f(b)\), entonces existe \(c\in(a,b)\) tal que \(f'(c)=0\).</p>
+
+                    <h3>Demostración</h3>
+                    <ol>
+                        <li>Por Weierstrass \(f\) alcanza máximo y mínimo en \([a,b]\).</li>
+                        <li>Si \(f\) es constante el resultado es inmediato. Si no lo es, alguno de los extremos absolutos está en \((a,b)\).</li>
+                        <li>En ese punto interior la derivada lateral existe y vale 0 por ser un extremo.</li>
+                        <li>Por tanto existe \(c\) con \(f'(c)=0\).</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Extra E. Teorema del Valor Medio (Lagrange)</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="sub-section">
+                    <h3>Enunciado</h3>
+                    <p>Si \(f\) es continua en \([a,b]\) y derivable en \((a,b)\), entonces existe \(c\in(a,b)\) tal que</p>
+                    <p class="formula">$$f'(c)=\frac{f(b)-f(a)}{b-a}.$$</p>
+
+                    <h3>Demostración (esquema)</h3>
+                    <p>Aplicar Rolle a la función auxiliar \(g(x)=f(x)-\left(\frac{f(b)-f(a)}{b-a}\right)x\). Entonces \(g(a)=g(b)\) y se obtiene \(g'(c)=0\), que da la igualdad deseada.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Extra F. Teorema Fundamental del Cálculo (Parte I y II)</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="sub-section">
+                    <h3>Parte I</h3>
+                    <p>Si \(f\) es continua en \([a,b]\) y definimos \(F(x)=\int_a^x f(t)\,dt\), entonces \(F\) es derivable y \(F'(x)=f(x)\).</p>
+                    <p>Demostración: usar el cociente \(\frac{F(x+h)-F(x)}{h}=\frac{1}{h}\int_x^{x+h} f(t)\,dt\) y el Teorema del Valor Medio para integrales, luego pasar al límite usando continuidad.</p>
+
+                    <h3>Parte II (Barrow)</h3>
+                    <p>Si \(F\) es una antiderivada de \(f\) en \([a,b]\), es decir \(F'(x)=f(x)\), entonces</p>
+                    <p class="formula">$$\int_a^b f(x)\,dx = F(b)-F(a).$$</p>
+                    <p>Idea: aproximar la integral por sumas de Riemann y usar el teorema de Taylor elemental en cada subintervalo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Extra G. Criterios y demostraciones: crecimiento, extremos y concavidad</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="card-content">
+                <div class="sub-section">
+                    <h3>Derivada y crecimiento</h3>
+                    <p>Si \(f'\ge 0\) en un intervalo y \(f'\) es continua, entonces \(f\) es creciente.</p>
+                    <p>Demostración (esquema): sea \(a<b\). Por el Teorema del Valor Medio existe \(c\in(a,b)\) con \(f(b)-f(a)=f'(c)(b-a)\). Si \(f'(c)\ge0\) entonces \(f(b)\ge f(a)\).</p>
+
+                    <h3>Extremos relativos</h3>
+                    <p>Si \(f'(x_0)=0\) y \(f''(x_0)>0\) entonces \(x_0\) es mínimo local; si \(f''(x_0)<0\) es máximo local. Si \(f''(x_0)=0\) hay que analizar derivadas superiores o el cambio de signo.</p>
+
+                    <h3>Concavidad e inflexión</h3>
+                    <p>Si \(f''(x)>0\) (resp. \(<0\)) en un intervalo, \(f\) es cóncava hacia arriba (resp. abajo). Un punto de inflexión es un punto donde \(f''\) cambia de signo.</p>
+                </div>
+            </div>
+        </div>
+        <!-- END: BLOQUE TEÓRICO AGREGADO -->
+<div class="card">
             <div class="card-header" onclick="toggleCard(this)">
                 <h2>3. SERIES NUMÉRICAS</h2>
                 <i class="fas fa-chevron-down"></i>
