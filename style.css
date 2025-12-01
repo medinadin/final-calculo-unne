@@ -234,3 +234,13 @@ button:hover {
     margin: 14px 0;
     font-size: 1.1rem;
 }
+mjx-container {
+    font-size: 1.2rem !important;
+}
+.formula {
+    text-align: center;
+    margin: 18px 0;
+}
+.card-content {
+    margin-bottom: 20px;
+}
